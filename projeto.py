@@ -8,8 +8,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.subheader("Exercício Projeto")
-st.title("Exercício Projeto")
+st.subheader("Exercício Projetos")
 
 code = '''
 df = pd.read_csv("https://raw.githubusercontent.com/nathalycordsil/lista4/main/projetos.csv", sep=";") 
@@ -21,10 +20,6 @@ df = pd.read_csv("https://raw.githubusercontent.com/nathalycordsil/lista4/main/p
 st.dataframe(df.head(23))
 
 st.write("O dataframe foi atualizado adicionando mais uma linha ao final com os dados referentes ao mês de dezembro de 2023.")
-st.write("mes | ano | Projeto1 | Projeto2 | Projeto3 | Projeto4 | Projeto5")
-st.write("--- | --- | -------- | -------- | -------- | -------- | --------")
-st.write("12 | 2023 | 29376 | 40392 | 63648 | 29376 | 25704")
-
 st.write("obs: a partir deste ponto, utilize a df atualizada, agora com 24 meses de dados")
 
 code = '''
@@ -44,6 +39,7 @@ code = '''
 colunas = ['Projeto1', 'Projeto2', 'Projeto3', 'Projeto4', 'Projeto5']
 st.write(df.groupby('ano')[colunas].sum())
 '''
+st.code(code, language='python')
 
 colunas = ['Projeto1', 'Projeto2', 'Projeto3', 'Projeto4', 'Projeto5']
 st.write(df.groupby('ano')[colunas].sum())
@@ -55,6 +51,7 @@ fig, ax = plt.subplots()
 df.plot(kind = 'scatter', x = 'Projeto1', y = 'Projeto2', color='darkgreen', marker='*', ax=ax)
 st.pyplot(fig)
 '''
+st.code(code, language='python')
 
 fig, ax = plt.subplots()
 df.plot(kind = 'scatter', x = 'Projeto1', y = 'Projeto2', color='darkgreen', marker='*', ax=ax)
@@ -69,6 +66,7 @@ df["Projeto1"].plot(kind='hist', ax=ax)
 df["Projeto4"].plot(kind='hist', ax=ax)
 st.pyplot(fig)
 '''
+st.code(code, language='python')
 
 fig, ax = plt.subplots()
 df["Projeto1"].plot(kind='hist', ax=ax)
@@ -76,13 +74,13 @@ df["Projeto4"].plot(kind='hist', ax=ax)
 st.pyplot(fig)
 
 st.subheader("Exercício IPEADATA")
-st.title("Exercício IPEADATA")
 
 st.write('Busca na base do IPEADATA os indicadores relacionados a taxa de juros Selic. O objetivo é encontrar o código correspondente ao indicador "Taxa de juros - Over / Selic - acumulada no mês"')
 
 code = '''
 st.write(ip.list_series('Selic'))
 '''
+st.code(code, language='python')
 
 st.write(ip.list_series('Selic'))
 
@@ -92,6 +90,7 @@ code = '''
 selic = ip.timeseries('BM12_TJOVER12', yearGreaterThan=2021, yearSmallerThan=2024)
 st.write(selic)
 '''
+st.code(code, language='python')
 
 selic = ip.timeseries('BM12_TJOVER12', yearGreaterThan=2021, yearSmallerThan=2024)
 st.write(selic)
@@ -104,6 +103,7 @@ ip.timeseries('BM12_TJOVER12', year=2021).plot("MONTH", "VALUE ((% a.m.))", ax=a
 ip.timeseries('BM12_TJOVER12', year=2022).plot("MONTH", "VALUE ((% a.m.))", ax=ax)
 st.pyplot(fig)
 '''
+st.code(code, language='python')
 
 fig, ax = plt.subplots()
 ip.timeseries('BM12_TJOVER12', year=2021).plot("MONTH", "VALUE ((% a.m.))", ax=ax)
