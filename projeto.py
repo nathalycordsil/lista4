@@ -9,6 +9,7 @@ st.set_page_config(
 )
 
 st.subheader("Exercício Projetos")
+st.write("Os dados se referem aos valores futuros previstos para receita mensal de 5 projetos diferentes. A análise dos dados permitirá a decisão sobre o investitmento em um ou mais alternativas de projetos. Neste cenário, os dados futuros se referem ao período de 2022 e 2023, logo, a data referência da análise é de dezembro/2021")
 
 code = '''
 df = pd.read_csv("https://raw.githubusercontent.com/nathalycordsil/lista4/main/projetos.csv", sep=";") 
